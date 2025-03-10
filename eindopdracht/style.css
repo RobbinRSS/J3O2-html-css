@@ -5,7 +5,8 @@ body {
 main,
 nav,
 #pictures-game,
-#system-requirements {
+#system-requirements,
+#user-reviews {
   width: 60%; /* breedte pagina */
   margin: 0 auto;
   /* background-color: lightgray; */
@@ -20,14 +21,21 @@ main,
 }
 
 main {
+  position: relative;
   justify-content: space-between;
   align-items: start;
 }
 
 nav {
-  padding: 15px;
   background-color: white;
   margin-bottom: 20px;
+}
+
+#user-reviews,
+#system-requirements,
+#pictures-game,
+nav {
+  padding: 15px;
 }
 
 #links-games {
@@ -52,9 +60,11 @@ nav {
 }
 
 #type-game {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
-  float: left;
-  margin-top: auto;
+  padding-left: 30px;
 }
 
 #type-game p {
@@ -83,16 +93,8 @@ nav {
   padding-right: 15px;
 }
 
-#pictures-game {
-  padding: 15px;
-}
-
 #system-requirements {
   display: flex;
   flex-direction: column; /* Stapelt de elementen onder elkaar */
   padding: 15px;
-}
-
-#system-requirements p {
-  margin: 5px;
 }
