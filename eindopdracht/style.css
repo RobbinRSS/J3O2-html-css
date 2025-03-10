@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main,
+nav,
+#pictures-game {
+  width: 60%; /* breedte pagina */
+  margin: 0 auto;
+  /* background-color: lightgray; */
+  border: 2px solid black;
+}
+
+main,
+#pictures-game {
+  padding-left: 30px;
+  display: flex;
+}
+
+main {
+  justify-content: space-between;
+  align-items: start;
+}
+
+nav {
+  padding: 15px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+#links-games {
+  display: flex;
+  gap: 5px;
+}
+
+#links-games a {
+  padding: 20px;
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+#links-games a:last-child {
+  margin-left: auto;
+}
+
+#description-game {
+  width: 70%;
+  height: 100%;
+}
+
+#type-game {
+  display: flex;
+  position: absolute;
+  bottom: 27%;
+  left: 21%;
+}
+
+#type-game p {
+  margin-right: 8px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+#game-info {
+  width: 30%;
+  text-align: left;
+  border-left: 2px solid black;
+  padding-left: 15px;
+}
+
+#player-rating p {
+  font-weight: bold;
+}
+
+#player-rating {
+  padding-bottom: 40px;
+}
+
+#pictures-game img {
+  width: 200px;
+  padding-right: 15px;
+}
+
+#pictures-game {
+  padding: 15px;
+}
