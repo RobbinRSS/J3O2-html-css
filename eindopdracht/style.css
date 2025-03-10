@@ -4,7 +4,8 @@ body {
 
 main,
 nav,
-#pictures-game {
+#pictures-game,
+#system-requirements {
   width: 60%; /* breedte pagina */
   margin: 0 auto;
   /* background-color: lightgray; */
@@ -12,7 +13,8 @@ nav,
 }
 
 main,
-#pictures-game {
+#pictures-game,
+#system-requirements {
   padding-left: 30px;
   display: flex;
 }
@@ -51,9 +53,8 @@ nav {
 
 #type-game {
   display: flex;
-  position: absolute;
-  bottom: 27%;
-  left: 21%;
+  float: left;
+  margin-top: auto;
 }
 
 #type-game p {
@@ -84,4 +85,14 @@ nav {
 
 #pictures-game {
   padding: 15px;
+}
+
+#system-requirements {
+  display: flex;
+  flex-direction: column; /* Stapelt de elementen onder elkaar */
+  padding: 15px;
+}
+
+#system-requirements p {
+  margin: 5px;
 }
