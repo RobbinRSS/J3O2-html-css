@@ -46,14 +46,16 @@ nav {
 
 #links-games a:hover,
 #links-games button:hover,
-#open-shopping-cart:hover {
+#open-shopping-cart:hover,
+#filter-buttons button:hover {
   color: white;
   background-color: black;
 }
 
 #links-games a,
 #links-games button,
-#open-shopping-cart {
+#open-shopping-cart,
+#filter-buttons button {
   padding: 20px;
   border: 2px solid black;
   color: black;
@@ -169,7 +171,7 @@ nav {
   border-radius: 5px;
 }
 
-#games-popup {
+.games-popup {
   display: flex;
   padding: 5px;
   align-items: center;
@@ -180,4 +182,8 @@ nav {
   margin-top: 10px;
   float: right;
   border-radius: 5px;
+}
+
+#filter-buttons button {
+  margin-bottom: 10px;
 }

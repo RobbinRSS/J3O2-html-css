@@ -1,5 +1,6 @@
 // variables //
 const arrGames = [];
+const arrShoppingCart = [];
 const overlay = document.querySelector(".overlay");
 const hidden = document.querySelector(".hidden");
 const popup = document.querySelector(".popup");
@@ -52,9 +53,9 @@ const checkGamePrice = function (price) {
 
 // add all the games to the html //
 const addPopupContent = function () {
-  arrGames.forEach((game) => {
+  arrGames.forEach((game, index) => {
     const html = `
-    <div id="games-popup">
+    <div class="games-popup" data-game-index=${index}>
         <button class="round-button"></button>
         <span id="game-name">${
           game.title
@@ -64,3 +65,14 @@ const addPopupContent = function () {
   });
 };
 /////////
+
+popupContent.addEventListener("click", function (e) {
+  const clicked = e.target;
+  console.log(clicked);
+  const gamesPopup = clicked.closest(".games-popup");
+  console.log(gamesPopup);
+  const index = gamesPopup.getAttribute("data-game-index");
+  console.log(index);
+  arrShoppingCart.push(arrGames[index]);
+  console.log(arrShoppingCart);
+});
