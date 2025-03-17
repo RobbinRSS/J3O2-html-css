@@ -44,19 +44,21 @@ nav {
   gap: 5px;
 }
 
-#links-games a:hover {
+#links-games a:hover,
+#links-games button:hover {
   color: white;
   background-color: black;
 }
 
-#links-games a {
+#links-games a,
+#links-games button {
   padding: 20px;
   border: 2px solid black;
   color: black;
   text-decoration: none;
 }
 
-#links-games a:last-child {
+#links-games button:last-child {
   margin-left: auto;
 }
 
@@ -105,9 +107,9 @@ nav {
   padding: 15px;
 }
 
-/* .hidden {
+.hidden {
   display: none;
-} */
+}
 
 .popup {
   position: absolute;
@@ -139,7 +141,6 @@ nav {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: none;
   background-color: white;
   cursor: pointer;
   display: flex;
@@ -165,6 +166,7 @@ nav {
 
 #games-popup {
   display: flex;
+  padding: 5px;
   align-items: center;
   gap: 10px;
 }
