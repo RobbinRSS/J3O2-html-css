@@ -149,6 +149,8 @@ nav {
 }
 
 #popup-game-content {
+  max-height: 600px;
+  overflow-y: auto;
   border: 2px solid black;
   border-radius: 5px;
   padding: 25px;
