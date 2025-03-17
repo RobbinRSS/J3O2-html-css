@@ -45,16 +45,19 @@ nav {
 }
 
 #links-games a:hover,
-#links-games button:hover {
+#links-games button:hover,
+#open-shopping-cart:hover {
   color: white;
   background-color: black;
 }
 
 #links-games a,
-#links-games button {
+#links-games button,
+#open-shopping-cart {
   padding: 20px;
   border: 2px solid black;
   color: black;
+  background-color: white;
   text-decoration: none;
 }
 
@@ -171,4 +174,10 @@ nav {
   padding: 5px;
   align-items: center;
   gap: 10px;
+}
+
+#open-shopping-cart {
+  margin-top: 10px;
+  float: right;
+  border-radius: 5px;
 }

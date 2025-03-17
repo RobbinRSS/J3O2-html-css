@@ -40,13 +40,25 @@ document.addEventListener("keydown", function (event) {
 });
 ////////
 
+// Check if game is 0 dollar //
+const checkGamePrice = function (price) {
+  if (!price) {
+    return "FREE";
+  } else {
+    return `$${price}`;
+  }
+};
+/////////
+
 // add all the games to the html //
 const addPopupContent = function () {
   arrGames.forEach((game) => {
     const html = `
     <div id="games-popup">
         <button class="round-button"></button>
-        <span id="game-name">${game.title}<span id="game-price">$${game.price}</span></span>
+        <span id="game-name">${
+          game.title
+        }<span id="game-price">${checkGamePrice(game.price)}</span></span>
     </div>`;
     popupContent.insertAdjacentHTML("beforeend", html);
   });
