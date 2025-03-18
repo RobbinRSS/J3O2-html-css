@@ -16,7 +16,7 @@ fetch("./assets/games.json")
   .then((response) => response.json())
   .then((games) => {
     arrGames.push(...games);
-    addPopupContent();
+    addContentContainer(arrGames, popupContent);
   })
   .catch((error) => console.error("Fout bij laden JSON:", error));
 //
@@ -56,20 +56,22 @@ const checkGamePrice = function (price) {
 };
 /////////
 
-// add all the games to the html //
-const addPopupContent = function () {
-  arrGames.forEach((game, index) => {
+// add content to container //
+const addContentContainer = function (arr, el) {
+  el.innerHTML = "";
+
+  arr.forEach((game, index) => {
     const html = `
-    <div class="games-popup" data-game-index=${index}>
-        <button class="round-button"></button>
-        <span id="game-name">${
-          game.title
-        }<span id="game-price">${checkGamePrice(game.price)}</span></span>
-    </div>`;
-    popupContent.insertAdjacentHTML("beforeend", html);
+        <div class="games-popup" data-game-index="${index}">
+            <button class="round-button"></button>
+            <span id="game-name">${
+              game.title
+            }<span id="game-price">${checkGamePrice(game.price)}</span></span>
+              </div>`;
+    el.insertAdjacentHTML("beforeend", html);
   });
 };
-/////////
+//
 
 // add to shopping cart logic //
 popupContent.addEventListener("click", function (e) {
@@ -89,23 +91,6 @@ popupContent.addEventListener("click", function (e) {
 openShoppingCart.addEventListener("click", function () {
   closePopup(popup);
   openPopup(shoppingCart);
-  addContentCart();
+  addContentContainer(arrShoppingCart, contentCart);
 });
 ////////
-
-// add content to cart //
-const addContentCart = function () {
-  contentCart.innerHTML = "";
-
-  arrShoppingCart.forEach((game) => {
-    const html = `
-        <div class="games-popup">
-          <button class="round-button"></button>
-          <span id="game-name">${
-            game.title
-          }<span id="game-price">${checkGamePrice(game.price)}</span></span>
-        </div>`;
-    contentCart.insertAdjacentHTML("beforeend", html);
-  });
-};
-//////
