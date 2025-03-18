@@ -95,6 +95,8 @@ openShoppingCart.addEventListener("click", function () {
 
 // add content to cart //
 const addContentCart = function () {
+  contentCart.innerHTML = "";
+
   arrShoppingCart.forEach((game) => {
     const html = `
         <div class="games-popup">
