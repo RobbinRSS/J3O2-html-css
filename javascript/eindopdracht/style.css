@@ -116,7 +116,8 @@ nav {
   display: none;
 }
 
-.popup {
+.popup,
+.shopping-cart {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -153,7 +154,8 @@ nav {
   flex-shrink: 0;
 }
 
-#popup-game-content {
+#popup-game-content,
+#shopping-cart-content {
   max-height: 600px;
   overflow-y: auto;
   border: 2px solid black;
@@ -186,4 +188,8 @@ nav {
 
 #filter-buttons button {
   margin-bottom: 10px;
+}
+
+.selected {
+  color: green;
 }

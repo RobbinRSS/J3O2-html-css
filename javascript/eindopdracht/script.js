@@ -4,8 +4,11 @@ const arrShoppingCart = [];
 const overlay = document.querySelector(".overlay");
 const hidden = document.querySelector(".hidden");
 const popup = document.querySelector(".popup");
+const shoppingCart = document.querySelector(".shopping-cart");
 const gamePicker = document.getElementById("game-picker");
 const popupContent = document.getElementById("popup-game-content");
+const openShoppingCart = document.getElementById("open-shopping-cart");
+const contentCart = document.getElementById("shopping-cart-content");
 ///////
 
 // fetch call to the json file //
@@ -13,25 +16,27 @@ fetch("./assets/games.json")
   .then((response) => response.json())
   .then((games) => {
     arrGames.push(...games);
-    // console.log(arrGames);
     addPopupContent();
   })
   .catch((error) => console.error("Fout bij laden JSON:", error));
 //
 
 // Popup functions //
-const openPopup = function () {
-  popup.classList.remove("hidden");
+const openPopup = function (el) {
+  el.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
-const closePopup = function () {
-  popup.classList.add("hidden");
+const closePopup = function (el) {
+  el.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
-gamePicker.addEventListener("click", () => openPopup());
-overlay.addEventListener("click", () => closePopup());
+gamePicker.addEventListener("click", () => openPopup(popup));
+overlay.addEventListener("click", () => {
+  closePopup(popup);
+  closePopup(shoppingCart);
+});
 
 document.addEventListener("keydown", function (event) {
   console.log(event);
@@ -66,13 +71,39 @@ const addPopupContent = function () {
 };
 /////////
 
+// add to shopping cart logic //
 popupContent.addEventListener("click", function (e) {
-  const clicked = e.target;
-  console.log(clicked);
-  const gamesPopup = clicked.closest(".games-popup");
-  console.log(gamesPopup);
-  const index = gamesPopup.getAttribute("data-game-index");
-  console.log(index);
+  const clicked = e.target.closest(".games-popup");
+
+  // guard clause
+  if (clicked.classList.contains("selected")) return;
+
+  clicked.classList.add("selected");
+  const index = clicked.getAttribute("data-game-index");
+
   arrShoppingCart.push(arrGames[index]);
-  console.log(arrShoppingCart);
 });
+////////////////
+
+// Open shopping cart //
+openShoppingCart.addEventListener("click", function () {
+  closePopup(popup);
+  openPopup(shoppingCart);
+  addContentCart();
+});
+////////
+
+// add content to cart //
+const addContentCart = function () {
+  arrShoppingCart.forEach((game) => {
+    const html = `
+        <div class="games-popup">
+          <button class="round-button"></button>
+          <span id="game-name">${
+            game.title
+          }<span id="game-price">${checkGamePrice(game.price)}</span></span>
+        </div>`;
+    contentCart.insertAdjacentHTML("beforeend", html);
+  });
+};
+//////
