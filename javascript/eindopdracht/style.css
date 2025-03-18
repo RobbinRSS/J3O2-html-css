@@ -55,7 +55,8 @@ nav {
 #links-games a,
 #links-games button,
 #open-shopping-cart,
-#filter-buttons button {
+#filter-buttons button,
+#total-price {
   padding: 20px;
   border: 2px solid black;
   color: black;
@@ -180,7 +181,8 @@ nav {
   gap: 10px;
 }
 
-#open-shopping-cart {
+#open-shopping-cart,
+#total-price {
   margin-top: 10px;
   float: right;
   border-radius: 5px;

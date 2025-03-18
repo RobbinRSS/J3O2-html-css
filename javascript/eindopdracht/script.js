@@ -9,6 +9,7 @@ const gamePicker = document.getElementById("game-picker");
 const popupContent = document.getElementById("popup-game-content");
 const openShoppingCart = document.getElementById("open-shopping-cart");
 const contentCart = document.getElementById("shopping-cart-content");
+const priceContainer = document.getElementById("total-price");
 ///////
 
 // fetch call to the json file //
@@ -92,5 +93,15 @@ openShoppingCart.addEventListener("click", function () {
   closePopup(popup);
   openPopup(shoppingCart);
   addContentContainer(arrShoppingCart, contentCart);
+  totalPriceCart();
 });
 ////////
+
+// get total price of array shopping cart //
+const totalPriceCart = function () {
+  const priceTotal = arrShoppingCart.reduce((acc, game) => {
+    return (acc += game.price);
+  }, 0);
+  priceContainer.textContent = priceTotal;
+};
+/////////
