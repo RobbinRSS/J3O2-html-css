@@ -55,8 +55,12 @@ const addContentContainer = function (arr, el) {
   el.innerHTML = "";
 
   arr.forEach((game) => {
+    const isSelected = selectedGameTitles.has(game.title);
+
     const html = `
-        <div class="games-popup" data-game-title="${game.title}">
+        <div class="games-popup ${
+          isSelected ? "selected" : ""
+        }" data-game-title="${game.title}">
             <button class="round-button"></button>
             <span id="game-name">${
               game.title
@@ -85,14 +89,26 @@ popupContent.addEventListener("click", function (e) {
   const clicked = e.target.closest(".games-popup");
 
   // guard clause
+  if (!clicked) return;
   if (clicked.classList.contains("selected")) return;
 
   clicked.classList.add("selected");
   const gameTitle = clicked.getAttribute("data-game-title");
   const selectedGame = arrGames.find((game) => game.title === gameTitle);
 
-  arrShoppingCart.push(selectedGame);
+  if (selectedGame) {
+    arrShoppingCart.push(selectedGame);
+  }
+
+  updateSelectedGames();
 });
+
+const selectedGameTitles = new Set();
+
+const updateSelectedGames = function () {
+  selectedGameTitles.clear();
+  arrShoppingCart.forEach((game) => selectedGameTitles.add(game.title));
+};
 ////////////////
 
 // Open shopping cart //
