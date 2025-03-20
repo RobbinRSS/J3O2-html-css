@@ -69,9 +69,13 @@ const addContentContainer = function (arr, el) {
 
 // filter genre games function //
 
-const filterGenre = function () {
-  const result = arrGames.filter((game) => game.genre === "FPS");
-  //   addContentContainer(result, popupContent); // TODO works, but have to make it more dynamic
+const filterGenre = function (price, genre, rating) {
+  const result = arrGames.filter(
+    (game) =>
+      game.price <= price && game.genre === genre && game.rating >= rating
+  );
+
+  addContentContainer(result, popupContent);
 };
 
 //////////
@@ -107,3 +111,13 @@ const totalPriceCart = function () {
   priceContainer.textContent = priceTotal.toFixed(2);
 };
 /////////
+
+document
+  .getElementById("save-filter-btn")
+  .addEventListener("click", function () {
+    const priceFilter = document.getElementById("price-filter").value;
+    const genreFilter = document.getElementById("genre-filter").value;
+    const ratingFilter = document.getElementById("rating-filter").value;
+
+    filterGenre(priceFilter, genreFilter, ratingFilter);
+  });
