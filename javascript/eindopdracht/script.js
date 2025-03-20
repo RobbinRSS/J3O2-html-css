@@ -129,6 +129,7 @@ const totalPriceCart = function () {
 };
 /////////
 
+// filter save and reset//
 document
   .getElementById("save-filter-btn")
   .addEventListener("click", function () {
@@ -138,3 +139,14 @@ document
 
     filterGenre(priceFilter, genreFilter, ratingFilter);
   });
+
+document
+  .getElementById("reset-filter-btn")
+  .addEventListener("click", function () {
+    document.getElementById("price-filter").value = "";
+    document.getElementById("genre-filter").value = "";
+    document.getElementById("rating-filter").value = "";
+
+    addContentContainer(arrGames, popupContent);
+  });
+//
