@@ -54,9 +54,9 @@ const checkGamePrice = function (price) {
 const addContentContainer = function (arr, el) {
   el.innerHTML = "";
 
-  arr.forEach((game, index) => {
+  arr.forEach((game) => {
     const html = `
-        <div class="games-popup" data-game-index="${index}">
+        <div class="games-popup" data-game-title="${game.title}">
             <button class="round-button"></button>
             <span id="game-name">${
               game.title
@@ -88,9 +88,10 @@ popupContent.addEventListener("click", function (e) {
   if (clicked.classList.contains("selected")) return;
 
   clicked.classList.add("selected");
-  const index = clicked.getAttribute("data-game-index");
+  const gameTitle = clicked.getAttribute("data-game-title");
+  const selectedGame = arrGames.find((game) => game.title === gameTitle);
 
-  arrShoppingCart.push(arrGames[index]);
+  arrShoppingCart.push(selectedGame);
 });
 ////////////////
 
