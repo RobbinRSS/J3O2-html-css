@@ -47,7 +47,7 @@ nav {
 #links-games a:hover,
 #links-games button:hover,
 #open-shopping-cart:hover,
-#filter-buttons button:hover {
+#filters-game button:hover {
   color: white;
   background-color: black;
 }
@@ -55,7 +55,9 @@ nav {
 #links-games a,
 #links-games button,
 #open-shopping-cart,
-#filter-buttons button,
+#filters-game button,
+#filters-game input,
+#filters-game select,
 #total-price {
   padding: 20px;
   border: 2px solid black;
@@ -188,7 +190,12 @@ nav {
   border-radius: 5px;
 }
 
-#filter-buttons button {
+#filters-game {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 5px;
   margin-bottom: 10px;
 }
 

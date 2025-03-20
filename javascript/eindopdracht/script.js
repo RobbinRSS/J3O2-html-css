@@ -38,13 +38,6 @@ overlay.addEventListener("click", () => {
   closePopup(popup);
   closePopup(shoppingCart);
 });
-
-document.addEventListener("keydown", function (event) {
-  console.log(event);
-  if (event.key === "Escape" && !popup.classList.contains("hidden")) {
-    closePopup();
-  }
-});
 ////////
 
 // Check if game is 0 dollar //
@@ -74,6 +67,15 @@ const addContentContainer = function (arr, el) {
 };
 //
 
+// filter genre games function //
+
+const filterGenre = function () {
+  const result = arrGames.filter((game) => game.genre === "FPS");
+  //   addContentContainer(result, popupContent); // TODO works, but have to make it more dynamic
+};
+
+//////////
+
 // add to shopping cart logic //
 popupContent.addEventListener("click", function (e) {
   const clicked = e.target.closest(".games-popup");
@@ -102,6 +104,6 @@ const totalPriceCart = function () {
   const priceTotal = arrShoppingCart.reduce((acc, game) => {
     return (acc += game.price);
   }, 0);
-  priceContainer.textContent = priceTotal;
+  priceContainer.textContent = priceTotal.toFixed(2);
 };
 /////////

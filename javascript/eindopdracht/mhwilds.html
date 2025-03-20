@@ -20,11 +20,42 @@
 
     <div class="popup hidden">
       <h1>Overzicht</h1>
-      <div id="filter-buttons">
-        <button id="genre-btn">Genre dropdown</button>
-        <button id="ok-btn">OK knop</button>
-        <button id="price-input">Prijs inputfield</button>
-        <button id="ok-btn">OK knop</button>
+
+      <div id="filters-game">
+        <div class="filter-group">
+          <input
+            type="number"
+            id="price-filter"
+            class="filter-input"
+            placeholder="max price"
+          />
+        </div>
+
+        <div class="filter-group">
+          <select id="genre-filter" class="filter-dropdown">
+            <option value="">Alle genres</option>
+            <option value="Action">Action</option>
+            <option value="RPG">RPG</option>
+            <option value="FPS">FPS</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Looter-shooter">Looter-shooter</option>
+            <option value="Sport">Sport</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="MOBA">MOBA</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <input
+            type="number"
+            id="rating-filter"
+            class="filter-input"
+            placeholder="rating"
+            min="1"
+            max="5"
+          />
+        </div>
+        <button id="ok-btn">Save</button>
       </div>
       <div id="popup-game-content">
         <!-- <div id="games-popup">
