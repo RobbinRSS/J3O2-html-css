@@ -149,4 +149,13 @@ document
 
     addContentContainer(arrGames, popupContent);
   });
-//
+//////
+
+// easter egg //
+document.getElementById("type-game").addEventListener("click", function () {
+  const giphy = document.querySelector(".giphy-embed");
+
+  giphy.classList.contains("hidden")
+    ? giphy.classList.remove("hidden")
+    : giphy.classList.add("hidden");
+});
